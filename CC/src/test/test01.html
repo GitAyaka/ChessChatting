@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>test01</title>
+</head>
+<body>
+<input type="button" value="加载新文档" onclick="newDoc()">
+<script>
+    var str = "请牢记您的ID:";
+function newDoc(){
+    alert("注册成功" + '\n' + str);
+    // window.location.assign("./login.html")
+    var tmp = 123202;
+    window.location.assign('./test02.html' + '?' + tmp);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+/* 用于设置个人中心的样式 */
+
+/* 左侧边栏样式 */
+.selfLeft {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #4F9C9C;
+    font-weight: bold;
+}
+.selfLeft:hover {
+    background-color:#4F9C9C;
+    color:aliceblue;
+    font-weight: bold;
+}
+
+
+/* 中间主体框样式 */
+#selfChange {
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+    color: #4e4d4d;
+}
+#selfChange p {
+    position: relative;
+    top: 20px;
+    font-weight: bold;
+}
+.inChange {
+    width: 350px;
+    height: 30px;
+    font-size: 16px;
+    /* border-color: #4F9C9C; */
+    border-radius: 7px;
+    position: relative;
+    top: 50px;
+}
+.buttonChange {
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+    /* border-color: #4F9C9C; */
+    border-radius: 7px;
+    background-color:slategrey;
+    color:snow;
+    border: 0px;
+    position: relative;
+    top: 70px;
+}
+.buttonChange:hover {
+    background-color:#4F9C9C;
+    color:snow;
+    font-weight: bold;
+}
+
+
+#changeNameTips {
+    text-align: center;
+}
+#changeNameTips p {
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    color: #4e4d4d;
+}
+
+
+/* 退出登录按钮 */
+#exitsys {
+    /* height: 450px;
+    line-height: 450px; */
+    text-align: center;
+}
+#exitsys div{
+    position: absolute;
+    top: 100px;
+    left: 30px;
+    height: 150px;
+    width: 220px;
+    /* width: 100%;
+    height: 500px; */
+    text-align: center;
+    line-height: 75px;
+    background:linear-gradient(to right, #EAE5C9, #2eb9c1);;
+    font-weight: bold;
+    font-size: 26px;
+    color:aliceblue;
+    border-radius: 20px 0 0 20px;
+}
+#exitsys div:hover{
+    /* background-color: crimson; */
+    color: aliceblue;
+    background: linear-gradient(to right, #EAE5C9, crimson);
+}
+#exitsys div p {
+    position: relative;
+    top: 30px;
+    line-height: 45px;
+}
+
+#selfBasicInfoTitle{
+    font-weight: bold;
+    font-size: 24px;
+}
+#selfBasicInfo {
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #4e4d4d;
+}
+#selfBasicInfo p {
+    position: relative;
+    top: 20px;
+    
+}
+
+
+#historyGameListTitle{
+    font-weight: bold;
+    font-size: 24px;
+}
+#historyGameList {
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    color: #4e4d4d;
+}
+#historyGameList p {
+    position: relative;
+    top: 20px;
+}
+#historyGameListBox{
+    position: relative;
+    left: 50px;
+    overflow-y: auto;
+    width: 700px;
+    height: 530px;
+    /* background-color: #2eb9c1; */
+    color: #4e4d4d;
+}
+#historyGameListBox table {
+    border: 0;
+    text-align: center;
+}
+#historyGameListBox th td{
+    width: 150px;
+}
+#historyGameListBox tr td{
+    /* border: 1px; */
+    width: 150px;
+    height: 30px;
+}
+#historyGameListTitle2 span{
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    color: slategrey;
+    position: relative;
+    right: 38px;
+}

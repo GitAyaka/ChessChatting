@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>象棋聊天室</title>
+    <link rel="icon" href="../img/iconbgnone.png" sizes="32x32">
+    <link rel="stylesheet" href="./style/universalSettings.css">
+    <link rel="stylesheet" href="./style/indexStyle.css">
+    <link rel="stylesheet" href="./style/selfStyle.css">
+    <link rel="stylesheet" href="./style/friendStyle.css">
+    <link rel="stylesheet" href="./style/friendChatStyle.css">
+    <link rel="stylesheet" href="./style/roomStyle.css">
+    <link rel="stylesheet" href="./style/roomFixedStyle.css">
+    <link rel="stylesheet" href="./style/roomChessBasicStyle.css">
+    <script src="./libs/jQuery.min.js"></script>
+    <script src="./script/self.js"></script>
+    <script src="./script/friendChat.js"></script>
+    <script src="./script/friend.js"></script>
+    <script src="./script/roomChat.js"></script>
+    <script src="./script/roomChess.js"></script>
+    <script src="./script/room.js"></script>
+    <style>
+        .pointEventNone {
+            pointer-events: none;
+        }
+        .displayNone {
+            display: none;
+        }
+    </style>
+    <embed src="/bgm.mp3" hidden="true" autostart="true" loop="true">
+</head>
+<body>
+    <div id="navigationBar">
+        <span id="friendsManage" class="bar" onclick="friendInfo(ID)">
+            ✔ 好 友 聊 天
+        </span>
+        <span id="roomsManage" class="bar" onclick="roomInfo(ID)">
+            ✔ 象 棋 大 厅
+        </span>
+        <span id="exercise" class="bar">
+            <a href="./chess.html" target="_blank">✔ 单 机 练 习</a>
+        </span>
+        <span id="selfManage" onclick="selfInfo(ID)">
+            ✔ 个 人 中 心 🤡
+        </span>
+    </div>
+    
+    <div class="" id="leftFrame">
+        <div class="tmp tmpRight" id="changeNameTips">
+            <br>
+            <p>使 用 说 明</p>
+            <hr>
+            <p>本系统可以进行聊天和下棋</p>
+            <p></p>
+        </div>
+    </div>
+    
+    <div id="mainFrame">
+        <div class="tmp" style="text-align:center; position:relative; top:150px;">
+            <img src="../img/iconbgnone.png" alt="" width="200px" height="200px">
+            <h1 style="color:#4F9C9C ; position:relative; top:100px;">
+                欢迎使用象棋聊天室系统
+            </h1>
+        </div>
+    </div>
+
+    <div class="" id="rightFrame">
+        <div class="tmp tmpRight" id="changeNameTips">
+            <br>
+            <p>免 责 声 明</p>
+            <hr>
+            <p>本系统仅用作学习用途</p>
+            <p></p>
+        </div>
+
+    </div>
+
+    <script>
+        // 获取用户的ID
+        const ID = location.search.substring(1);
+        console.log(ID);
+
+        /* 通过检查ID是否合法，检查是否登录了 */
+        if(ID.length != 13){
+            window.location.assign("./login.html")
+        }
+
+        // 用户获取自己的信息
+        $.ajax({
+            url:"http://localhost:8080/searchUserByUId?uId=" + ID,
+            type:"GET",
+            async:false,
+            contentType:"application/json; charset=utf-8",
+            dataType : 'json',
+            success:function(res){
+                console.log(res.length);
+                // // 通过检查是否存在此用户，检查是否登录了
+                // if(res.length == 0) {
+                //     window.location.assign("./login.html");
+                // }
+                // 通过检查用户状态，检查是否登录了
+                if(res.state != 1){
+                    window.location.assign("./login.html");
+                }
+                var self = JSON.stringify(res);
+                localStorage.setItem("self"+ID, self);
+            }
+        })
+
+        // var a = localStorage.getItem("self");
+        // var b = JSON.parse(a);
+        // console.log(b);
+
+        // window.onbeforeunload=function (){
+        //     if(event.clientX>document.body.clientWidth && event.clientY < 0 || event.altKey){
+        //         alert("你关闭了浏览器");
+        //     }else{
+        //         alert("你正在刷新页面");
+        //     }
+        // }
+
+        // $(window).unload(function(){ 
+        //     //响应事件 
+        //     alert("获取到了页面要关闭的事件了！"); 
+        // });
+
+        // 获取好友信息
+        // var returnFriendList = '';
+        // $.ajax({
+        //     url:"http://localhost:8080/getFriendList?uId=" + ID,
+        //     type:"GET",
+        //     async:false,
+        //     contentType:"application/json; charset=utf-8",
+        //     dataType : 'json',
+        //     beforeSend:function(){
+                
+        //     },
+        //     success:function(res){
+        //         console.log(res);
+        //         returnFriendList = res;
+        //     }
+        // })
+        // console.log(returnFriendList);
+
+        // 准备一个对象用来暂存消息，然后转成string存储到localstorage中
+        // var message = [];
+        // var friendMessage = {
+        //     fId:"",
+        //     fMessage:message
+        // }
+        // var friendMessageList = [];
+
+
+        // 从后端数据库获取离线消息
+        // 获取离线消息
+        // 这是真的，还没写完
+        // var allMessage = '';
+        // $.ajax({
+        //     url:"http://localhost:8080/getOfflineMsg",
+        //     type:"GET",
+        //     async:false,
+        //     contentType:"application/json; charset=utf-8",
+        //     data:{
+        //         uId:ID
+        //     },
+        //     dataType : 'json',
+        //     beforeSend:function(){
+                
+        //     },
+        //     success:function(res){
+        //         console.log(res);
+        //         allMessage = res;
+        //     }
+        // })
+        // console.log(allMessage);
+
+        // 把获取到的离线消息存储到localstorage中
+
+        // 与服务端建议双向通讯的链接
+        // var wSck= new WebSocket("ws://localhost:8080/chat/" + ID);
+        // // var wSck1= new WebSocket("ws://localhost:8081/chat/" + ID);
+        // wSck.onopen = function() {
+        //     console.log("connection success");
+        // };
+        // wSck.onerror = function() {
+        //     console.log("connection error");
+        // };
+
+        // 准备接收新消息
+        // wSck.onmessage = function(resm) {
+        //     //Decode JSON data into an object 可能不需要，看后端返回什么再说
+        //     console.log(resm);
+        //     var resmm = JSON.parse(resm);
+        //     console.log(resmm);
+        // };
+
+        // console.log(wSck);
+        // 把新消息也写入localstorage
+        // 这样好友聊天界面就可以直接从前端数据库中获得消息
+
+
+        // var m0 =["你好","hh"]
+        // var fm0 = {
+        //     fId:123,
+        //     fmessage:m0
+        // }
+        // var obj0 = [fm0]
+        // console.log(obj0[0].fId);
+        // console.log(obj0[0].fmessage[0]);
+        // var mobjstring111 = JSON.stringify(obj0);
+        // localStorage.setItem("meobj", mobjstring111);
+
+        setTimeout(() => {
+            // basicInfo();
+            // declare();
+        }, 10);
+    </script>
+    
+</body>
+</html>

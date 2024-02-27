@@ -1,0 +1,16 @@
+table{
+	margin:10px;
+	
+	border-collapse:collapse;
+}
+table.board{
+	background-color:snow;
+}
+table,td.board{
+	border:2px solid #4F9C9C;
+}
+
+td{
+	height:65px;
+	width:65px;
+}

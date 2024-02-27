@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 象棋聊天室</title>
+    <link rel="icon" href="../img/iconbgnone.png" sizes="32x32">
+    <link rel="stylesheet" href="./style/universalSettings.css">
+    <link rel="stylesheet" href="./style/loginRegisterStyle.css">
+    <script src="./libs/jQuery.min.js"></script>
+    <style>
+        #subm {
+            width: 70%;
+            height: 32px;
+            color:#f0f8ff;
+            font-size: 18px;
+            background-color: #4F9C9C;
+            border: 0px;
+            border-radius: 5px;
+        }
+    </style>
+    <embed src="/bgm.mp3" hidden="true" autostart="true" loop="true">
+</head>
+<body>
+    <div class="loginAndRegister">
+        <form action="" method="post">
+            <br><br><br><br><br>
+            <h1 class="lwords">
+                欢迎登录下棋聊天室系统
+            </h1>
+            <br><br><br><br>
+            <span>
+                <!-- <p>请输入用户名：</p> -->
+                <input type="text" placeholder="请输入您的用户Id" class="in" name="name" id="inId">
+            </span><br><br>
+            <span>
+                <!-- <p>请输入密码：</p> -->
+                <input type="password" placeholder="请输入您的密码" class="in" name="password" id="inPwd">
+            </span><br><br>
+            <div>
+                <input id="subm" type="button" value="登 录">
+            </div>
+        </form>
+        <div>
+            <a href="./register.html">还没有账号？去注册！</a>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <div class="lwords">
+            <p>联系我们：......@126.com</p>
+        </div>
+    </div>
+
+    <script>
+        // 按钮效果
+        var submitButton = document.getElementById("subm");
+        submitButton.onmouseover = function (){
+            submitButton.style.backgroundColor = "slategrey";
+        }
+        submitButton.onmouseout = function (){
+            submitButton.style.backgroundColor = "#4F9C9C";
+        }
+        // console.log(submitButton.style.backgroundColor)
+
+        
+
+        // 提交
+        $("#subm").on("click", function(){
+            $(".fault").remove();
+            var usrId = $("#inId").val();
+            var pwd = $("#inPwd").val();
+            console.log(usrId);
+            console.log(pwd);
+            var tmpData = {
+                "uId":usrId,
+                "uPwd":pwd
+            }
+
+            $.ajax({
+                url:"http://localhost:8080/login",    //接受post的位置
+                type:"post",
+                contentType:"application/json; charset=utf-8",
+                data:JSON.stringify(tmpData),
+                // data : {
+                //     uId : $("#inId").val(),
+                //     uPwd : $("#inPwd").val(),
+                // },
+                dataType : 'json',
+                // async:true,
+                beforeSend:function(){
+                    if(usrId.length == 0 || pwd.length == 0){
+                        alert("用户ID或密码不能为空!")
+                        return false;
+                    }
+                    if(usrId.length > 20 || pwd.length > 20){
+                        alert("用户ID或密码不能超过20位!")
+                        return false;
+                    }
+                    //设置该按钮为不可点击，防止用户重复点击
+                    $("#subm").attr("disabled",true);  
+                },
+                success:function(res){
+                    console.log(res);
+                    if(res){
+                        // 登录成功
+                        window.location.assign("./index.html" + "?" + usrId);
+                    }
+                    else{
+                        // 登录失败
+                        alert("用户名或密码错误!");
+                        window.location.assign("./login.html");
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+</html>

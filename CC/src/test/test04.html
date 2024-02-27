@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="chess000">
+
+    </div>
+    <script>
+        //--------------------->棋盘的样子
+        (function(){
+            var C_C = document.getElementById("chess000");
+            // C_C.appendChild(document.createElement("table"));
+
+            table = document.createElement("table");
+            table.classList.add("board");
+            tBody = document.createElement("tBody");
+            for(var i=0;i<9;i++){
+                row = tBody.insertRow(i);
+                for(var j=0;j<8;j++){
+                    cell = row.insertCell(j);
+                    if(i!=4){cell.classList.add("board")}
+                }
+            }
+            table.style.position="absolute";
+            table.style.top="80px";
+            table.style.left="280px";
+            table.appendChild(tBody);
+            C_C.appendChild(table);
+            
+        })();
+    </script>
+</body>
+</html>

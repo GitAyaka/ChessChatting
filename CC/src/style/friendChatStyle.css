@@ -1,0 +1,150 @@
+.fC {
+    width: 100%;
+}
+#fCName {
+    height: 40px;
+    line-height: 40px;
+    background-color:slategrey;
+    color:snow;
+    text-align: center;
+}
+#fCButton {
+    text-align: center;
+    height: 46px;
+    line-height: 46px;
+}
+#fCButton input {
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: 0;
+    background-color:slategrey;
+    color: snow;
+}
+#fCButton input:hover {
+    font-weight: bold;
+}
+#exitChat:hover {
+    background-color:#4F9C9C;
+}
+#launchChallenge:hover {
+    background-color: goldenrod ;
+}
+#deleteMessage:hover {
+    background-color:chocolate;
+}
+#deleteFriend:hover {
+    background-color: crimson;
+}
+
+#contentBox {
+    overflow-y:auto;
+    width: 100%;
+    height: 500px;
+    /* border: 1px solid slategrey; */
+    /* background-color:slateblue; */
+   
+}
+#inputBox {
+    width: 100%;
+    height: 116px;
+    /* border: 1px solid slategrey; */
+    background-color: slategrey;
+    /* background-color:#4F9C9C; */
+    border-radius: 0 0 20px 20px;
+    /* line-height: 116px; */
+    text-align: center;
+}
+
+#inputTalk {
+    height: 100px;
+    width: 70%;
+    position: relative;
+    top: 5px;
+    border-radius: 7px;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    resize: none;
+}
+#buttonTalk {
+    height: 30px;
+    width: 10%;
+    position: relative;
+    bottom: 41px;
+    border-radius: 7px;
+    background-color:snow;
+    color: #4F9C9C;
+    font-weight: bold;
+    border: slategrey;
+}
+#buttonTalk:hover {
+    background-color:#4F9C9C;
+    color: snow;
+    border: snow;
+}
+
+
+
+
+
+
+
+/* 设置消息的样式 */
+#contentBox p{
+    display:inline-block;
+    background-color: slategrey;
+    border-radius:0 10px 10px 10px;
+    color:snow;
+    padding:5px 10px;
+    margin: 5px 10px;
+}
+#contentBox span p{
+    display:inline-block;
+    background:#4F9C9C;
+    border-radius:10px 0 10px 10px;
+    color:snow;
+    margin: 5px 10px;
+
+}
+ 
+/* 改变B发送的消息的对齐方式 */
+#contentBox span{
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+    /* align-self: flex-end;    */
+}
+
+
+
+
+
+
+/* 左侧 */
+#roomInfo {
+    text-align: center;
+}
+#roomInfo p {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    color: #4e4d4d;
+}
+#roomInfo input {
+    width: 160px;
+    height: 40px;
+    /* line-height: 50px; */
+    font-size: 18px;
+    font-weight: bold;
+    background-color:slategrey;
+    color: aliceblue;
+    border: 0;
+    border-radius: 5px;
+}
+#roomInfo input:hover {
+    background-color:crimson;
+}
+
+#friendChatFrame hr {
+    color: slategrey;
+}

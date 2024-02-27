@@ -1,0 +1,92 @@
+
+/* 导航栏样式的设置 */
+#navigationBar {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background-color:slategrey;
+    border-radius: 0 0 25px 25px;
+}
+
+#navigationBar span {
+    font-weight: bold;
+    color: aliceblue;
+    
+}
+#navigationBar span:hover {
+    /* font-weight:900; */
+    color:#4F9C9C;
+    
+}
+
+#friendsManage {
+    position: relative;
+    left: 45px;
+}
+
+#roomsManage {
+    position: relative;
+    left: 100px;
+}
+#exercise {
+    position: relative;
+    left: 150px;
+}
+#selfManage {
+    position: relative;
+    left: 1000px;
+}
+
+
+/* 主体部分设置 */
+#mainFrame {
+    width: 800px;
+    height: 700px;
+    /* background-color: whitesmoke; */
+    background-color:snow;
+    border-radius: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    /* display: inline-block; */
+}
+
+
+
+#leftFrame {
+    /* float: left; */
+    width: 250px;
+    height: 500px;
+    background-color:aliceblue;
+    border-radius: 0 20px 20px 0;
+    position: fixed;
+    left: 0;
+    top:0;
+    bottom:0;
+    margin: auto;
+}
+#rightFrame {
+    /* float: right; */
+    width: 250px;
+    height: 500px;
+    background-color:aliceblue;
+    border-radius: 20px 0 0 20px;
+    position: fixed;
+    right: 0;
+    top:0;
+    bottom:0;
+    margin: auto;
+}
+
+
+
+a:link{
+    color:aliceblue ;
+}
+a:visited{
+    color:aliceblue;
+}
+a:hover{
+    color:#4F9C9C;
+}

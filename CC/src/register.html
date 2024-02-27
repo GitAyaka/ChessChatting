@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册 - 象棋聊天室</title>
+    <link rel="icon" href="../img/iconbgnone.png" sizes="32x32">
+    <link rel="stylesheet" href="style/universalSettings.css">
+    <link rel="stylesheet" href="style/loginRegisterStyle.css">
+    <script src="libs/jQuery.min.js"></script>
+    <style>
+        form span p {
+            text-align: left;
+            position: relative;
+            left: 10%;
+            font-weight: bold;
+        }
+        .rbutton {
+            width: 30%;
+            height: 32px;
+            color:aliceblue;
+            font-size: 18px;
+            background-color: #4F9C9C;
+            /* color:goldenrod */
+            border: 0px;
+            border-radius: 5px;
+        }
+    </style>
+    <embed src="/bgm.mp3" hidden="true" autostart="true" loop="true">
+</head>
+<body>
+    <div class="loginAndRegister">
+        <form action="" method="post">
+            <br><br><br><br><br>
+            <h1 class="lwords">
+                欢迎注册下棋聊天室系统
+            </h1>
+            <br><br><br>
+            <span>
+                <p class="lwords" id="inUser">请输入用户名：</p>
+                <input id="usrName" type="text" placeholder="用户名不能超过20个字符" class="in" name="name">
+            </span><br><br>
+            <span>
+                <p class="lwords" id="inPwd">请输入密码：</p>
+                <input id="pwd1" type="password" placeholder="密码不能超过20个字符" class="in" name="password1">
+            </span><br><br>
+            <span>
+                <p class="lwords" id="confirmPwd">请再次确认密码：</p>
+                <input id="pwd2" type="password" placeholder="两次输入的密码需保持一致" class="in" name="password2">
+            </span><br><br>
+            <div>
+                <input class="rbutton" id="subm" type="button" value="注 册">
+                <input class="rbutton" id="clear" type="reset" value="清 空">
+            </div>
+        </form>
+        <div>
+            <a href="./login.html">已有账号？去登录！</a>
+        </div>
+        <br><br><br><br><br><br>
+        <div class="lwords">
+            <p>联系我们：......@126.com</p>
+        </div>
+    </div>
+
+    <script>
+        // 鼠标滑过按钮效果，原生JS，后续需要用JQ优化
+        var registerButton = document.getElementsByClassName("rbutton");
+        registerButton[0].onmouseover = function (){
+            registerButton[0].style.backgroundColor = "slategrey";
+        }
+        registerButton[1].onmouseover = function (){
+            registerButton[1].style.backgroundColor = "slategrey";
+        }
+        registerButton[0].onmouseout = function (){
+            registerButton[0].style.backgroundColor = "#4F9C9C";
+        }
+        registerButton[1].onmouseout = function (){
+            registerButton[1].style.backgroundColor = "#4F9C9C";
+        }
+        // console.log(submitButton.style.backgroundColor)
+
+        // 提交验证与正式提交
+        $("#subm").on("click", function(){
+            $(".fault").remove();
+
+            var usrValid = false;
+            var pwdValid = false;
+
+            var usrName = $("#usrName").val();
+            if(usrName.length == 0) {
+                $("#inUser").append("<span>用户名不能为空</span>");
+                $("#inUser>span").css("color","goldenrod").prop("class","fault");
+            }
+            else if(usrName.length > 20) {
+                $("#inUser").append("<span>用户名不能超过二十位</span>");
+                $("#inUser>span").css("color","goldenrod").prop("class","fault");
+            }
+            else {
+                usrValid = true;
+            }
+
+            var pwd1 = $("#pwd1").val();
+            var pwd2 = $("#pwd2").val();
+            // console.log(typeof pwd1);
+            // console.log(pwd1.length);
+            if(pwd1.length == 0 || pwd2.length == 0){
+                $("#inPwd").append("<span>密码不能为空</span>");
+                $("#inPwd>span").css("color","goldenrod").prop("class","fault");
+            }
+            else if(pwd1.length > 20 || pwd2.length > 20){
+                $("#inPwd").append("<span>密码不能超过20个字符</span>");
+                $("#inPwd>span").css("color","goldenrod").prop("class","fault");
+            }
+            else{
+                if(pwd1 == pwd2){
+                    pwdValid = true;
+                    // $("#fault").remove();
+                    // console.log("牛逼");
+                }
+                else{
+                    $("#confirmPwd").append("<span>两次输入的密码需保持一致</span>");
+                    // console.log("傻逼");
+                    $("#confirmPwd>span").css("color","goldenrod").prop("class","fault");
+                }
+            }
+
+            var tmpData = {
+                "uName":usrName,
+                "uPwd":pwd1
+            }
+
+            // 正式提交注册信息
+            if(usrValid && pwdValid){
+                console.log("success");
+                $.ajax({
+                    url:'http://localhost:8080/register',
+                    type:'POST',
+                    contentType: "application/json; charset=utf-8",
+                    data:JSON.stringify(tmpData),
+                    // data : {
+                    //     uName : usrName,
+                    //     uPwd : pwd1,
+                    // },
+                    dataType : 'json',           //我在这里期望你返回一个json对象，
+                    beforeSend:function(){
+                        $("#subm").attr("disabled",true);  //设置该按钮为不可点击，防止用户重复点击
+                    },
+                    success:function(res){       //它包含两个属性，code是注册结果,暂定注册成功为'ok'
+                        console.log(res);        //另外一个属性是data，是后端自动生成的用户ID
+                        if(true){
+                            // 注册成功
+                            // var resp = JSON.parse(res);
+                            var usrId = res.uid;
+                            // alert
+                            alert("注册成功！" + '\n' + "请牢记您的ID:" + usrId);
+                            window.location.assign("./login.html");
+                        }
+                        else{
+                            // 注册失败
+                            alert("注册失败！");
+                            window.location.assign("./register.html");
+                        }
+                    }
+                })
+            }
+
+        })
+
+    </script>
+</body>
+</html>

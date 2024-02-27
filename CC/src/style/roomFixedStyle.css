@@ -1,0 +1,273 @@
+/* 
+    房间内右侧样式设置 
+
+*/
+/* 先设置聊天部分的样式 */
+#roomRightHead {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+#roomRightHead p {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: cadetblue;
+    font-weight: bold;
+    width: 50px;
+}
+#roomRightHead p:hover {
+    background-color: cadetblue;
+    color: aliceblue;
+}
+
+#messageShow {
+    overflow: auto;
+    width: 100%;
+    height: 380px;
+    /* background-color: aquamarine; */
+}
+#messageInput {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    /* background-color:antiquewhite; */
+}
+#itext {
+    height: 30px;
+    width: 180px;
+    border-radius: 4px;
+    font-size: 18px;
+}
+#btext {
+    height: 30px;
+    width: 50px;
+    color: aliceblue;
+    background-color: slategrey;
+    border: 0;
+    border-radius: 4px;
+}
+#btext:hover {
+    background-color:cadetblue;
+}
+/* 设置消息的样式 */
+#messageShow p{
+    display:inline-block;
+    background-color: slategrey;
+    border-radius:0 10px 10px 10px;
+    color:aliceblue;
+    padding:5px 10px;
+    margin: 5px 10px;
+}
+#messageShow span p{
+    display:inline-block;
+    background:#4F9C9C;
+    border-radius:10px 0 10px 10px;
+    color:aliceblue;
+    margin: 5px 10px;
+
+}
+/* 改变B发送的消息的对齐方式 */
+#messageShow span{
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+}
+
+/* 成员列表的样式 */
+#memberList {
+    text-align: center;
+    height: 420px;
+    overflow: auto;
+}
+#memberList div {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+
+}
+#memberList div:hover {
+    background-color: #4F9C9C;
+    
+}
+#memberList input {
+    background-color: slategrey;
+    color: aliceblue;
+    border: 0;
+    border-radius: 3px;
+}
+#memberList input:hover {
+    background-color:goldenrod;
+    font-weight: bold;
+}
+
+/* 挑战申请的样式 */
+#chanllengeList {
+    text-align: center;
+    height: 380px;
+    overflow: auto;
+}
+#chanllengeList div {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+
+}
+#chanllengeList input {
+    font-weight: bold;
+    background-color: slategrey;
+    color: aliceblue;
+    border: 0;
+    border-radius: 3px;
+}
+#chanllengeList input:hover {
+    background-color:#4F9C9C;
+}
+
+#chanllengeButtonDiv {
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+}
+#challengeBtn {
+    width: 150px;
+    height: 32px;
+    background-color: slategrey;
+    color: aliceblue;
+    border: 0;
+    border-radius: 6px;
+}
+#challengeBtn:hover {
+    background-color:#4F9C9C;
+}
+
+
+/* 左侧 */
+#roomInfo {
+    text-align: center;
+}
+#roomInfo p {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    color: #4e4d4d;
+}
+#roomInfo span {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    color: #4e4d4d;
+}
+#roomInfo input {
+    width: 160px;
+    height: 40px;
+    /* line-height: 50px; */
+    font-size: 18px;
+    font-weight: bold;
+    background-color:slategrey;
+    color: aliceblue;
+    border: 0;
+    border-radius: 5px;
+}
+#roomInfo input:hover {
+    background-color:crimson;
+}
+
+
+/* 中间 */
+
+/* 中间 */
+#chessButtonArea {
+    display: inline-block;
+    width: 130px;
+    height: 700px;
+    background-color:slategrey;
+    border: 0;
+    border-radius: 20px 0 0 20px;
+    text-align: center;
+    /* position: relative;
+    left: 1px; */
+}
+#chessButtonArea p {
+    /* position: absolute;
+    top: 0px; */
+    text-align: center;
+    background-color: snow;
+    color:#4F9C9C;
+    border: 0;
+    border-radius: 6px;
+    width: 110px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 18px;
+}
+#chessButtonArea p:hover {
+    background-color:aliceblue;
+    color:#4F9C9C;
+    
+}
+#buttonRetract {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    /* display: none; */
+    visibility: hidden;
+}
+#buttonGiveUp {
+    position: absolute;
+    top: 180px;
+    left: 10px;
+    /* display: none; */
+    visibility: hidden;
+}
+#buttonDraw {
+    position: absolute;
+    top: 280px;
+    left: 10px;
+    /* display: none; */
+    visibility: hidden;
+}
+
+#chessWatchingTip {
+    position: absolute;
+    top: 318px;
+    left: 10px;
+    text-align: center;
+    background-color: snow;
+    color:#4F9C9C;
+    border: 0;
+    border-radius: 6px 0 0 6px;
+    width: 120px;
+    height: 65px;
+    line-height: 65px;
+    font-weight: bold;
+    font-size: 18px;
+    /* display: none; */
+    visibility: hidden;
+}
+
+#chessBoxArea {
+    display: inline-block;
+    width: 670px;
+    height: 700px;
+    /* background-color:slategrey; */
+    border: 0;
+    border-radius: 0 20px 20px 0;
+    /* text-align: center;
+    line-height: 700px; */
+}
+
+#chessBoxArea {
+    display: inline-block;
+    width: 670px;
+    height: 700px;
+    /* background-color:slategrey; */
+    border: 0;
+    border-radius: 0 20px 20px 0;
+    /* text-align: center;
+    line-height: 700px; */
+}

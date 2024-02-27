@@ -1,0 +1,52 @@
+/* 左侧边栏样式 */
+.roomLeft {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #4F9C9C;
+    font-weight: bold;
+}
+.roomLeft:hover {
+    background-color:#4F9C9C;
+    color:aliceblue;
+    font-weight: bold;
+}
+
+.roomLeft input[type=text] {
+    height: 25px;
+    border-radius: 4px;
+}
+.roomLeft input[type=button] {
+    height: 28px;
+    border-radius: 5px;
+    border: 0;
+    color: aliceblue;
+    background-color:slategrey;
+}
+.roomLeft input[type=button]:hover {
+    background-color:goldenrod;
+    font-weight: bold;
+}
+
+#roomLeftList {
+    overflow: auto;
+    height: 370px;
+    text-align: center;
+}
+#roomLeftList span {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #4F9C9C;
+}
+#roomLeftList span:hover {
+    background-color:#4F9C9C;
+    color:aliceblue;
+}
+#roomLeftList hr {
+    height: 1px;
+    border: none;
+    border-top: 0.5px dashed;
+}

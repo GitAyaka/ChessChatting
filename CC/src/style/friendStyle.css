@@ -1,0 +1,146 @@
+/* 用于设置好友聊天模块的样式 */
+
+/* 左侧边栏样式 */
+.friendLeft {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #4F9C9C;
+    font-weight: bold;
+}
+.friendLeft:hover {
+    background-color:#4F9C9C;
+    color:aliceblue;
+    font-weight: bold;
+}
+
+#friendLeftList {
+    overflow: auto;
+    height: 420px;
+    text-align: center;
+}
+#friendLeftList span {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #4F9C9C;
+}
+#friendLeftList span:hover {
+    background-color:#4F9C9C;
+    color:aliceblue;
+}
+#friendLeftList hr {
+    height: 1px;
+    border: none;
+    border-top: 0.5px dashed;
+}
+
+
+
+/* 中间 */
+.friendManageFrame {
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+    color: #4e4d4d;
+}
+.friendManageFrame p {
+    position: relative;
+    top: 20px;
+    font-weight: bold;
+} 
+.friendManageFrame div {
+    overflow: auto;
+    width: 100%;
+    height: 550px;
+    text-align: center;
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 18px;
+}
+.friendManageFrame div input {
+    width: 60px;
+    height: 30px;
+    background-color:slategrey;
+    color: snow;
+    border-radius: 7px;
+    border: 0;
+}
+.agreeButton:hover {
+    background-color:#4F9C9C;
+    color: snow;
+    font-weight: bold;
+}
+.refuseButton:hover {
+    background-color:salmon;
+    color: snow;
+    font-weight: bold;
+}
+.inAdd {
+    width: 350px;
+    height: 30px;
+    font-size: 16px;
+    /* border-color: #4F9C9C; */
+    border-radius: 7px;
+    position: relative;
+    top: 50px;
+}
+.buttonAdd {
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+    /* border-color: #4F9C9C; */
+    border-radius: 7px;
+    background-color:slategrey;
+    color:snow;
+    border: 0px;
+    position: relative;
+    top: 50px;
+}
+.buttonAdd:hover {
+    background-color:#4F9C9C;
+    color:snow;
+    font-weight: bold;
+}
+/* 新写的 */
+#friendManageBar {
+    width: 100%;
+    height: 50px;
+    background-color: slategrey;
+    text-align: left;
+    line-height: 50px;
+    font-size: 18px;
+    border-radius: 20px 20px 0 0;
+
+}
+#friendManageBar p{
+    width: 130px;
+    text-align: center;
+    display: inline-block;
+    color: aliceblue;
+    position: relative;
+    left: 40px;
+}
+#friendManageBar p:hover{
+    color: slategrey;
+    background-color:snow;
+    font-weight: bold;
+}
+
+
+
+/* 右侧 */
+#addFriendTips {
+    text-align: center;
+}
+#addFriendTips p {
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    color: #4e4d4d;
+}
